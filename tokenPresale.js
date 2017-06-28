@@ -349,6 +349,7 @@ contract AhooleeTokenPreSale is Haltable {
     function withdraw() onlyOwner {
         if (!softCapReached) throw;
         if (!beneficiary.send(collected)) throw;
+        token.transfer(beneficiary, token.balanceOf(this));
         crowdsaleFinished = true;
     }
 
