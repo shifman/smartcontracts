@@ -324,8 +324,8 @@ contract AhooleeTokenPreSale is Haltable {
     }
 
     function () payable stopInEmergency{
-        if (msg.value > 0)
-            doPurchase(msg.sender);
+        if (msg.value < 0.01 * 1 ether) throw;
+        doPurchase(msg.sender);
     }
 
     function refund() external onlyAfter(endTime) {
