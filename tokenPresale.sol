@@ -244,7 +244,7 @@ contract AhooleeToken is StandardToken {
   string public name = "Ahoolee Token";
   string public symbol = "AHT";
   uint256 public decimals = 18;
-  uint256 public INITIAL_SUPPLY = 100000000 * 1 ether;
+  uint256 public INITIAL_SUPPLY = 200000000 * 1 ether;
 
   /**
    * @dev Contructor that gives msg.sender all of existing tokens. 
@@ -300,22 +300,18 @@ contract AhooleeTokenPreSale is Haltable {
     }
 
     function AhooleeTokenPreSale(
-        uint _hardCapUSD,
-        uint _softCapUSD,
         address _token,
         address _beneficiary,
         uint _totalTokens,
         uint _priceETH,
-        uint _purchaseLimitUSD,
 
         uint _startTime,
         uint _duration
     ) {
-        hardCap = _hardCapUSD  * 1 ether / _priceETH;
-        softCap = _softCapUSD * 1 ether / _priceETH;
+        
         price = _totalTokens * 1 ether / hardCap;
 
-        purchaseLimit = _purchaseLimitUSD * 1 ether / _priceETH * price;
+        purchaseLimit =  /*_purchaseLimitUSD * 1 ether / _priceETH * price;*/;
         token = AhooleeToken(_token);
         beneficiary = _beneficiary;
 
